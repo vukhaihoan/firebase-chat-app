@@ -9,7 +9,7 @@ export default function ChatRoom() {
       <Col span={6}>
         <SideBar />
       </Col>
-      <Col span={8}>
+      <Col span={18}>
         <ChatWindow />
       </Col>
     </Row>

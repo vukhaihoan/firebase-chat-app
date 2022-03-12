@@ -3,7 +3,9 @@ import { useHistory } from "react-router-dom";
 import { auth } from "../../firebase/config";
 import { Spin } from "antd";
 
-export const AuthContext = React.createContext({});
+import firebase from "firebase";
+
+export const AuthContext: any = React.createContext({});
 
 export default function AuthProvider({ children }: { children: any }) {
   const [user, setUser] = useState({});
@@ -14,6 +16,7 @@ export default function AuthProvider({ children }: { children: any }) {
     const unsubscibed = auth.onAuthStateChanged((user) => {
       if (user) {
         const { displayName, email, uid, photoURL } = user;
+        console.log({ displayName, email, uid, photoURL });
         setUser({
           displayName,
           email,
